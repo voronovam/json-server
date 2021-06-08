@@ -1,0 +1,44 @@
+@mixin h1()
+  font-family: $font-accent
+  font-style: normal
+  font-weight: 500
+  font-size: 40px
+  line-height: 44px
+  margin: 0
+@mixin h2()
+  font-family: $font-accent
+  font-style: normal
+  font-weight: 500
+  font-size: 30px
+  line-height: 34px
+  margin: 0
+@mixin h5()
+  font-family: $font-accent
+  font-style: normal
+  font-weight: 500
+  font-size: 18px
+  line-height: 21px
+  margin: 0
+@mixin text()
+  font-family: $font-default
+  font-style: normal
+  font-weight: 400
+  font-size: 15px
+  line-height: 22px
+  margin: 0
+@mixin tag
+  font-family: $font-default
+  font-style: normal
+  font-weight: 400
+  font-size: 14px
+  line-height: 22px
+@mixin specialtext()
+  font-family: $font-italic
+  font-style: italic
+  font-weight: 400
+  font-size: 13px
+  line-height: 22px
+
+@mixin media-desktop()
+  @media (min-width: 1200px)
+    @content
