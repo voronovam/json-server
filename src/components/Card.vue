@@ -15,7 +15,7 @@
       <footer class="card__bottom">
         <div class="card__date">{{ post.date }}</div>
         <div class="card__rate">
-          <button class="card__rate-btn" @click.prevent="ratePost(post)">
+          <button class="card__rate-btn" @click="ratePost(post)">
             <svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M7.27886 13L6.25982 12.0109C2.47481 8.76087 0 6.57065 0 3.88587C0 1.69565 1.74693 0 4.00337 0C5.24078 0 6.47818 0.565217 7.27886 1.4837C8.07953 0.565217 9.31694 0 10.5543 0C12.8108 0 14.5577 1.69565 14.5577 3.88587C14.5577 6.57065 12.0829 8.76087 8.2979 12.0109L7.27886 13Z" />
             </svg>
@@ -29,10 +29,11 @@
 </template>
 
 <script>
-import {mapGetters, mapMutations} from 'vuex';
+import { mapMutations } from 'vuex';
 
 export default {
   name: "Card",
+
   props: {
     post: {
       type: Object,
@@ -41,22 +42,13 @@ export default {
   },
 
   methods: {
-    ...mapMutations({
-      add: 'ratePost' // `this.add()` будет вызывать `this.$store.commit('increment')`
-    }),
-    ...mapMutations([
-        'getPost'
-    ]),
+    ...mapMutations(['ratePost']),
 
-    ratePost(post){
+    ratePost(post, $event){
       this.$store.commit('ratePost', post);
-
+      this.$emit('ratePost', $event);
     }
   },
-
-  /*computed: {
-    ...mapGetters(["getPost"]),
-  }*/
 }
 
 </script>

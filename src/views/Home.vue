@@ -7,6 +7,7 @@
             v-for="post in getAllPosts"
             :key="post.id"
             :post="post"
+            @ratePost="fetchPosts"
         />
       </div>
     </main>
@@ -21,11 +22,11 @@ import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'Home',
   components: {
-    Card
+    Card,
   },
 
   computed: {
-    ...mapGetters(["getAllPosts"]),
+    ...mapGetters(['getAllPosts']),
   },
 
   methods: {
@@ -34,8 +35,8 @@ export default {
 
   mounted() {
     this.fetchPosts();
-  }
-}
+  },
+};
 </script>
 <style lang="sass" scoped>
 .main
